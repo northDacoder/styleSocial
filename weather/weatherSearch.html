@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css">
+        <link rel="stylesheet" type="text/css" href="css/sfWeather.css">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.3.1.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADfN8HExgqO8NLvZOFRleYahFFp1IG2tI&sensor=false"></script>
+        <script type="text/javscript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-instagram/0.2.2/jquery.instagram.min.js"></script>
+
+        <script type="text/javascript" src="js/sfWeather.js"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+        <div data-role="page" data-theme="c" id="home">
+            <div data-role="header" data-theme="b" id="homeHeader"class="hidden">
+                <h3>Weather</h3>
+            </div>
+             
+            <div data-role="content" data-theme="b" id="contentHome">
+                
+
+                
+                <!-- Input for custom city search --> 
+                <div id="inputWrapper" class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <input type="text" name="city" id="city" data-inline="true" placeholder="Enter city here" data-theme="b"/>
+                    </div>
+
+                    <!-- Search city -->
+                    <div class="ui-block-b">
+                        <button id="citySubmit" data-icon="arrow-r" data-iconpos="right" data-theme="d" id="goButton"><span>Go!</span></button>
+                    </div>
+                </div>
+                
+
+                <div class="instagram"></div>
+
+                <div id="mapWrapper">
+                    <div id="map-canvas"></div>
+                </div>
+
+
+
+                <ul data-role="listview" data-inset="true" id="resultsList" class="shadow">
+                    <li class="ui-bar-a" ><h1 class="shadow">City:</h1><span id="cityName"></span></li>
+                    <li class="ui-bar-a" ><h1 class="shadow">Temperature:</h1><span id="cityTemp"></span></li>
+                    <li class="ui-bar-a">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a"><h1 class="shadow">Low:</h1><span id="temp_min"></span></div>
+                            <div class="ui-block-b"><h1 class="shadow">High:</h1><span id="temp_max"></span></div>
+                        </div>
+                    </li>
+                    <li class="ui-bar-a"><h1 class="shadow">Humidity:</h1><span id="cityHum"></span></li>
+                    <li class="ui-bar-a"><h1 class="shadow">Location:</h1><span id="cityCoord"></span></li>
+                </ul>
+                
+                     
+            </div>
+        </div>
+        </div>
+
+        <script>
+            $(".instagram").instagram({
+                userId: '4489780',
+                clientId: '16de7c347c604761bcae480576af41e8',
+                image_size:'standard_resolution'
+            });
+        </script>
+    </body>
+</html>

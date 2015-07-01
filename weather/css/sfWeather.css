@@ -1,0 +1,95 @@
+
+
+#wrapper {
+  height: 100%;
+  width: 1000px;
+}
+
+div#homeHeader {
+    padding: 0 25px;
+    box-shadow: 1px 1px 2px #333; 
+}
+
+
+div#mapWrapper {
+    -moz-box-shadow:    inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow:         inset 0 0 10px #000000;
+    padding: 15px;
+}
+
+#map3d {
+  height: 300px;
+  width: 100%;
+}
+#map-canvas {
+    margin: 50px;
+    padding: 50px;
+    height: 400px;
+    z-index: 10;
+    box-shadow: 3px 7px 12px black;
+}
+
+#contentHome {
+    background-color: #333;
+    /* background-color: #3BB8D9; */
+    /* background-color: #0B1B2F; */
+    z-index: 11;
+}
+
+div#inputWrapper {
+    z-index: 12;
+}
+
+#inputWrapper {
+    z-index: 13;
+}
+
+.shadow {
+    -moz-box-shadow:    inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow:         inset 0 0 10px #000000;
+    padding: 15px;
+}
+
+.hidden {
+    display: none; 
+}
+
+.instagram {
+  width: 500px;
+  height: 100%;
+}
+@media screen and (max-width: 600px) {
+    #map-canvas {
+      padding: 0;
+      margin: 0; 
+    }
+}
+
+/* @media screen and (min-width: 1000px) {
+
+
+  #wrapper {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  div#homeHeader {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  #map-canvas {
+    box-shadow: 2px 4px 2px #333;
+  }
+
+  #contentHome {
+    width: 1000px;
+    height: 800px;
+    margin: 0 auto;
+  }
+
+} */

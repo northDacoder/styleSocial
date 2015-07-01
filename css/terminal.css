@@ -1,0 +1,135 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+#terminalRow {
+    background: #3b84c0;
+    background-image: -webkit-linear-gradient(top, #3b84c0, #3983bd);
+    font-size: 13px;
+}
+pre {
+    position: relative;
+    color: #DDD;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    line-height: 1.5em;
+    margin:1em auto;
+    max-height: 200px;
+    overflow-x:hidden;
+    background: black;
+    border: none;
+    width: 100%;
+}
+
+.green {
+    color: #55FF55;
+}
+
+.window {
+    background: -webkit-linear-gradient(#E9E9E9, #B2B2B2 21px, #6A6A6A 1px, #000, #000 23px);
+    margin: 4.5em auto;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
+    padding: 0;
+    text-align: left;
+    width: 100%;
+    height: 300px;
+}
+
+nav#terminal  {
+    height: 19px;
+}
+nav#terminal a {
+    display: inline-block;
+    margin: 2px 2px 3px 2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background: #f36;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, .5);
+    text-indent: -9999px;
+    position: relative;
+}
+nav#terminal a:before {
+    content:'';
+    display: block;
+    position: absolute;
+    border-radius: 100%;
+    box-shadow:inset 0 1px 4px rgba(0, 0, 0, .8);
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+}
+nav#terminal a:after {
+    content:'';
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 1px;
+    bottom: 1px;
+    right: 1px;
+    border-radius: 100%;
+    background: -webkit-linear-gradient(white, rgba(255, 255, 255, .9) 2%, white, rgba(255, 255, 255, .4) 16%, rgba(255, 255, 255, 0) 43%, rgba(255, 255, 255, .74), rgba(255, 255, 255, .7) 122%, rgba(255, 255, 255, .7));
+    box-shadow: inset 0px -3px -5px 3px rgba(255, 255, 255, 0.2), inset 0px 2px -5px 3px rgba(255, 255, 255, 0.2);
+}
+nav#terminal a.close {
+    background: #FD4E4E;
+}
+nav#terminal a.minimize {
+    background: #F3BB55;
+}
+nav#terminal a.maximize {
+    background: #96D16F;
+}
+nav#terminal h1 {
+    font: normal normal 13px/20px"Lucida Grande", "Lucida Sans Unicode", sans-serif;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    top: -3.2em;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+    color: #444;
+}
+nav#terminal.line {
+  clear: both;
+  display: block;
+  width: 92%;
+  padding-left: 3.5em;
+  line-height: 1.3;
+  word-break: normal;
+  word-wrap: break-word;
+  
+}
+b {
+    -webkit-animation-name: bash;
+    -webkit-animation-direction: normal;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease;
+    animation-name: bash;
+    animation-direction: normal;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+
+@keyframes'bash' {
+    0% {
+        opacity:1.0
+    }
+    50% {
+        opacity:.0
+    }
+    100% {
+        opacity:1.0
+    }
+}
+@-webkit-keyframes'bash' {
+    0% {
+        opacity:1.0
+    }
+    50% {
+        opacity:.0
+    }
+    100% {
+        opacity:1.0
+    }
+}

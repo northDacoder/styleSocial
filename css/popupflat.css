@@ -1,0 +1,92 @@
+.navbar-fixed-top {background: rgba(44,62,80,.8);}
+
+#moving-zonend {position: absolute; top: 0; width: 100%; height: 100px; margin: 0 0 0 0; perspective: 800px;}
+#popupnd {
+    margin-top: 180px;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 20px 0 20px 0;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    background: -webkit-linear-gradient(top left, rgba(44,62,80, 1) 55%, rgba(44,62,80, 1) 50%);
+    background:    -moz-linear-gradient(top left, rgba(44,62,80, 1) 55%, rgba(24,188,156, .7) 50%);
+    background:     -ms-linear-gradient(top left, rgba(44,62,80, 1) 55%, rgba(24,188,156, .7) 50%);
+    background:      -o-linear-gradient(top left, rgba(44,62,80, 1) 55%, rgba(24,188,156, .7) 50%);
+    background:         linear-gradient(top left, rgba(44,62,80, 1) 55%, rgba(24,188,156, .7) 50%);
+    box-shadow: 0px 0px 20px rgba(0,0,0,1);
+
+}
+
+#popupnd .popup-content { background: rgba(0,0,0,.8); background: rgba(44,62,80,.7); padding: 30px; padding-top: 35px; box-sizing: border-box; border-radius: 12px 0 12px 0;}
+#popupnd .popup-text { color: white; font-family: 'Josefin Sans', cursive; font-size: 50px; line-height: 30px; font-weight: 500; text-align: center; margin-top: 10px; text-shadow: 0px 0px 10px rgba(24,188,164,1); transform: translateZ(15px);}
+.popup:before {
+    content: '';
+    position: absolute;
+    left:5%; top:5%;
+    width:90%; height:90%;
+    border-radius: inherit;
+    background: rgba(0,0,0,.1);
+    box-shadow: 0 0 40px 20px rgba(0,0,0,.1);
+    transform: translateZ(-100px);
+}
+.popup-content {
+    background: #444;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px 0 10px 0;
+}
+
+#pipeBlink {color: rgba(24,188,164,1); font-weight: 500; font-size: 40px; position: relative; bottom: 8px;}
+
+#profile {background: #eee; margin-top: 40px; padding: 10px 30px 10px 0; color: #3c3c3c;}
+#profile h1 {font-family: 'Special Elite', sans-serif;}
+
+
+#twitter-icon {color: rgba(255,255,255,.5); font-size: 70px; transition: .3s ease-out;}
+#twitter-icon:hover {color: rgba(255,255,255,1); transition: .1s ease-in;}
+#github-icon {color: rgba(255,255,255,.5); font-size: 70px; transition: .3s ease-out;}
+#github-icon:hover {color: rgba(255,255,255,1); transition: .1s ease-in;}
+
+.twitter-bg { background: url('img/twitter-bg.png'); background-position: 0 0;  background-repeat: no-repeat;}
+.github-bg { background: url('img/github-bg.png'); background-position: 0 0; background-repeat: no-repeat;}
+
+b {
+    -webkit-animation-name: bash;
+    -webkit-animation-direction: normal;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease;
+    animation-name: bash;
+    animation-direction: normal;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+
+@keyframes'bash' {
+    0% {
+        opacity:1.0
+    }
+    50% {
+        opacity:.0
+    }
+    100% {
+        opacity:1.0
+    }
+}
+@-webkit-keyframes'bash' {
+    0% {
+        opacity:1.0
+    }
+    50% {
+        opacity:.0
+    }
+    100% {
+        opacity:1.0
+    }
+}
+
+header .container {padding-top: 140px;}
+#northda {text-shadow: none;}
+
