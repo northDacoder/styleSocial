@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>styleSocial</title>
+
+    <!-- Custom Font Icons -->
+    <link href='https://fonts.googleapis.com/css?family=Caesar+Dressing|Cherry+Cream+Soda|Josefin+Sans:100,400|Rokkitt|Graduate|Pacifico|Special+Elite|Playball|Sancreek' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/devicons/1.4.0/css/devicons.min.css">
+    <link rel="stylesheet" href="css/code-editor.css" type="text/css">
+   
+    <!-- Css Styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/scrolling-nav.css" rel="stylesheet" type="text/css">
+    <link href='css/styles.css' rel='stylesheet' type='text/css'>
+    <link href='css/popup.css' rel='stylesheet' type='text/css'>
+    <link href='css/codepen.sass' rel='stylesheet' type='text/sass'>
+ 
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
+    <script type='text/javascript' src='//cdn.firebase.com/js/client/1.0.17/firebase.js'></script>
+    <script type='text/javascript'
+        src='http://cdn.firebase.com/js/simple-login/1.6.2/firebase-simple-login.js'></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADfN8HExgqO8NLvZOFRleYahFFp1IG2tI&sensor=false"></script>
+    
+    <script type="text/javascript" src="js/firebase.js"></script>
+    <script type="text/javascript" src="js/popup.js"></script>
+   
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top"><i class="fa fa-github"></i> STYLE SOCIAL</a>
+            </div>
+
+
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <!--<li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#mission" class="navlink">Mission</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#develop" class="navlink">{{ Develop }}</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#learn" class="navlink">Learn</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact" class="navlink">Contact</a>
+                    </li>-->
+
+                    
+                </ul>
+                <ul style="list-style-type: none;">
+                    <li class="pull-right">
+                        <a id="googleLogin" class="btn btn-sm btn-block btn-primary"><i class="fa fa-instagram"></i> Login</a>
+                    </li>
+                </ul>
+            </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <section id="intro" class="intro-section">
+        <div class="container-fluid" id="landingHeader">
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+                    <div class="moving-zone" id="moving-zonend">
+                        <div class="popup" id="popupnd">
+                            <div class="popup-content">
+                                <div class="popup-text">
+                                    style <span style="color: white;">SOCIAL<b id="pipeBlink">|</b></span> <br/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="nav-section" style="margin: 0; padding: 0;">
+        <div class="container-fluid">
+             <div class="row" id="navbuttons">
+                <div class="col-xs-3">
+                    <a class="btn btn-success btn-lg btn-block outline" href="https://www.github.com/northdacoder" id="social-github"><small><i class="fa fa-github"></i> Github</small></a>
+                </div>
+                <div class="col-xs-3">
+                    <a class="btn btn-primary btn-lg btn-block outline" href="https://twitter.com/northDacoder" id="social-twitter"><small><i class="fa fa-twitter"></i> Follow</small></a>
+                </div>
+
+
+                 <div class="col-xs-3">
+                    <a class="btn btn-info btn-lg btn-block outline" href="https://twitter.com/northDacoder" id="social-twitter"><small><i class="fa fa-briefcase"></i> Portfolio</small></a>
+                </div>
+
+                <div class="col-xs-3">
+                    <a class="btn btn-primary btn-lg btn-block outline" href="https://twitter.com/northDacoder" id="hireme"><small><i class="fa fa-rocket"></i> Hire Me</small></a>
+                </div>
+             </div>
+        </div>
+    </section> -->
+
+    <section id="mission" class="mission-section">
+        <div class="container-fluid" style="padding: 0;">
+            <div class="row" id="missionOverlay">
+                <div class="col-sm-8 col-sm-offset-2" id="profile">
+                <h1 class="text-center">Who are we?</h1>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <center><img src="img/johnyeti.png" class="img-responsive img-circle" id="johnny"></center>
+                            <div id="johnnyOverlay">
+                                <a href="http://www.github.com/northdacoder">
+                                    <i class="fa fa-github" id="github-icon"></i>
+                                </a>
+                                <a href="http://www.twitter.com/northdacoder">
+                                    <i class="fa fa-twitter" id="twitter-icon"></i>
+                                </a>
+                            </div>
+                            <h1>John Ryan</h1><h2>Founder :: Lead Developer</h2>
+                        </div>
+                        <div class="col-sm-6" style="padding-top: 70px;">
+                                <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="position: absolute; background: #384047; height: 50px; width: 100%; z-index: 10000000; margin-bottom: -50px;">
+        
+    </section>
+
+    <section id="develop" class="develop-section">
+        <p data-height="448" data-theme-id="0" data-slug-hash="sobkc" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/imagineux/pen/sobkc/'>Typing animation- Pretty</a> by Matthew Van Dusen (<a href='http://codepen.io/imagineux'>@imagineux</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+
+      <!--  <div class="code-editor"><span class="control"></span><span class="control"></span><span class="control"></span>
+            <pre class="numbers linenums prettyprint prettyprinted">
+              <ol class="linenums">
+                <li class="L0">
+                  <code class="css">
+                    <span class="pln">$</span>
+                    <span class="pun">(</span>
+                    <span class="str">document</span>
+                    <span class="pun">)</span>
+                    <span class="str">.ready</span>
+                    <span class="pun">(</span>
+                    <span class="pln">function</span>
+                    <span class="pun">()</span>
+                    <span class="pln">{</span>
+                  </code>
+                </li>
+                <li class="L1" style="padding-left: 30px; position: relative; bottom: 20px;">
+                  <code class="css">
+                    <span class="pln">var</span>
+                    <span class="kwd">northdacoder</span>
+                    <span class="pun">=</span>
+                    <span class="pln">$</span>
+                    <span class="pun">(</span>
+                    <span class="kwd">"#nothdacoder"</span>
+                    <span class="pun">)</span>
+                    <span class="str">.val</span>
+                    <span class="pun">()</span>
+                  </code>
+                </li>
+                <li class="L2" style="padding-left: 30px; position: relative; bottom: 50px;">
+                  <code class="css">
+                    <span class="pln">var</span>
+                    <span class="kwd">languages</span>
+                    <span class="pun">=</span>
+                    <span class="pln">[</span>
+                    <span class="str">Python</span>
+                    <span class="pun">, </span>
+                    <span class="str">Python</span>
+                    <span class="pun">, </span>
+                    <span class="str">Django</span>
+                    <span class="pun">, </span>
+                    <span class="str">JavaScript</span>
+                    <span class="pun">, </span>
+                    <span class="str">jQuery</span>
+                    <span class="pun">, </span>
+                    <span class="str">AngularJS</span>
+                    <span class="pun">, </span>
+                    <span class="str">CSS3</span>
+                    <span class="pun">, </span>
+                    <span class="str">Twitter Bootstrap</span>
+                    <span class="pun">, </span>
+                    <span class="str">FireBase</span>
+                    <span class="pln">]</span>
+                  </code>
+                </li>
+                 <li class="L2" style="position: relative; bottom: 70px;">
+                  <code class="css">
+                    <span class="pln">});</span>
+                  </code>
+                </li>
+              </ol>
+            </pre>
+          </div> -->
+        <script async src="http://codepen.io/assets/embed/ei.js"></script>
+    </section>
+
+
+
+    <div class="container-fluid" id="contact" style="padding: 0; position: relative; margin: 0;">
+        <div id="map-canvas" ></div>
+        <div class="row" style="position: absolute; top: 00px; background: rgba(0,46,57,.8); width: 100%; height: 100%; margin: 0; padding: 0;">
+            <div class="col-sm-4 col-sm-offset-1" id="mapText">
+                <h1 class="text-center"><i class="fa fa-map-marker"></i> Palo Alto, CA</h1>
+                <p class="text-center">We are always looking for opportunities to create projects that push the limits of the web.</p>
+                <p class="text-center">Drop us a line on <a href="http://www.twitter.com/northdacoder"><i class="fa fa-twitter"></i> Twitter</a>, stop by for <i class="fa fa-coffee"></i>, or <a href="mailto:northdacoder@gmail.com"><i class="fa fa-envelope"></i> email</a> us</p>
+            </div>
+            <div class="col-sm-4 col-sm-offset-2" id="mapForm">
+ -->                <form class="form-vertical" role="form">
+                    <div class="form-group">
+<!--                         <label class="label-control">Name</label>
+ -->                        <input class="form-control input-lg" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+<!--                         <label class="label-control">Email</label>
+ -->                        <input class="form-control input-lg" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+<!--                         <label class="label-control">Phone</label>
+ -->                        <input class="form-control input-lg" placeholder="Phone">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-info btn-lg btn-block">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+        function initialize() {
+
+            var cityLat = 37.441833;
+            var cityLon = -122.143019;
+
+            var mapOptions = {
+                center: new google.maps.LatLng(cityLat, cityLon),
+                // center: new google.maps.LatLng(37.441883,-122.143019),  //center: new google.maps.LatLng(37.78, -122.42)
+                zoom: 12,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            var map = new google.maps.Map(
+                document.getElementById("map-canvas"),
+                mapOptions);
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(parseFloat(cityLat), parseFloat(cityLon)),
+                map: map,
+                title: "NorthDacoder"
+            });
+
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+        $("#github-icon").mouseover(function(){
+            $("#mission").css('background', 'rgba(23,66,87,0)');
+            $("#mission").css('background-image', 'url("img/github-bg.png")');
+            $("#mission").css('background-position', '0 0');
+            $("#mission").css('transition', '1s ease-out');
+            $("#missionOverlay").css('background', 'rgba(84,208,209,.5)');
+            $("#missionOverlay").css('transition', '1s ease-in');
+            $("#profile").css('border-radius', '8px');
+            $("#profile").css('box-shadow', '1px 1px 5px rgba(0,0,0,1)');
+        });
+
+        $("#github-icon").mouseout(function(){
+            $("#mission").css('background', '#eee');
+            $("#missionOverlay").css('background', 'rgba(0,0,0,.0)');
+            $("#missionOverlay").css('transition', '1s ease-in');
+            $("#profile").css('border-radius', '8px');
+            $("#profile").css('box-shadow', 'none');
+        });
+
+        $("#twitter-icon").mouseover(function(){
+            $("#mission").css('background', 'rgba(23,66,87,0)');
+            $("#mission").css('background-image', 'url("img/twitter-bg.png")');
+            $("#mission").css('background-position', '0 0');
+            $("#missionOverlay").css('background', 'rgba(94,170,222,.5)');
+            $("#missionOverlay").css('transition', '1s ease-in');
+            $("#profile").css('border-radius', '8px');
+            $("#profile").css('box-shadow', '1px 1px 5px rgba(0,0,0,1)');
+        });
+
+        $("#twitter-icon").mouseout(function(){
+            $("#mission").css('background', '#eee');
+            $("#missionOverlay").css('background', 'rgba(0,0,0,.0)');
+            $("#missionOverlay").css('transition', '1s ease-in');
+            $("#profile").css('border-radius', '8px');
+            $("#profile").css('box-shadow', 'none');
+        });
+
+    </script>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
