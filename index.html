@@ -34,27 +34,88 @@
 
 
 
-            $.ajax({
-                // url: 'https://api.instagram.com/v1/tags/search?q=snowy&access_token=ACCESS-TOKEN',
-                url: 'https://api.instagram.com/v1/tags/nofilter/media/recent?client_id=283747d2bcf5489c8af8b752b0f92cc5',
-                dataType: 'jsonp',
-                type: 'GET',
-                success: function(response) {
-                    console.log("Success!");
-                    console.log(response.data);
-                    posts = response.data;
+            // $.ajax({
+            //     // url: 'https://api.instagram.com/v1/tags/search?q=snowy&access_token=ACCESS-TOKEN',
+            //     url: 'https://api.instagram.com/v1/tags/nofilter/media/recent?client_id=283747d2bcf5489c8af8b752b0f92cc5',
+            //     dataType: 'jsonp',
+            //     type: 'GET',
+            //     success: function(response) {
+            //         console.log("Success!");
+            //         console.log(response.data);
+            //         posts = response.data;
 
-                    for (var i = 0; i < posts.length; i++) {
-                        instagramHTML.append('<div class="well">' + '<img src="' + posts[i].images.standard_resolution.url + '" class="img-responsive img-circle" />' +  '<p class="lead">Tags: ' + posts[i].filter + '<br>' + posts[i].caption.text + '</p></div>');
-                    }
-                },
-                error: function(error) {
-                    console.log("Error!");
-                    console.log(error);
+            //         for (var i = 0; i < posts.length; i++) {
+            //             instagramHTML.append('<div class="well">' + '<img src="' + posts[i].images.standard_resolution.url + '" class="img-responsive img-circle" style="border: 4px dashed red;"/>' +  '<p class="lead">Tags: ' + posts[i].filter + '<br>' + posts[i].caption.text + '</p></div>');
+            //         }
+            //     },
+            //     error: function(error) {
+            //         console.log("Error!");
+            //         console.log(error);
+            //     }
+            // });
+
+
+              console.log("Document is now ready!");
+              var imageHolder = $("#instafeed");
+              console.log($(window));
+              var myToken = window.location.hash.split("=");
+              myToken = myToken[1];
+              console.log(myToken);
+              
+            function createHtml (data) {
+                console.log("createHtml function fired");
+                data = data.data; 
+                for (var i = 0; i < data.length; i++) {
+                    console.log(data[i]);
+                    var image = data[i].images.standard_resolution.url;
+                    console.log(image);
+                    var htmlString = 
+                                '<div class="">' + 
+                                  '<h3 class="text-center" style="color: white; position: absolute; background: #3f729b;">' + data[i].user.username + '</h3>' +  
+                                  '<img src="' + image + '" class="img-responsive" style="width: 100%; height: auto;"/>' +
+                                '</div>';
+                    imageHolder.append(htmlString);
+                    imageHolder.append(data[i]);
                 }
+
+            }
+              
+            var searchQuery = "style";
+              
+
+            function getData (q) {
+                
+                $.ajax({
+                    type: 'GET',
+                    // url: "https://api.instagram.com/v1/users/self/feed?access_token=" + myToken,
+                    url: "https://api.instagram.com/v1/tags/" + q + "/media/recent?access_token=" + myToken,
+                    dataType: 'jsonp',
+                    success: function(json) {
+                      console.log("Data has been loaded from Instagram"); 
+                      createHtml(json);
+                    },
+                    error:  function(error) {
+                      console.log(error);
+                    }
+                });
+            }
+              
+
+              
+            $("#insta-search").keydown(function (e) {
+                if (e.keyCode == 13) {
+                    searchQuery = $(this).val();
+                    alert(searchQuery);
+                }
+                getData(searchQuery);
             });
+
+              getData(searchQuery);
+
+
         });
     </script>
+
 </head>
 
 <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
@@ -80,8 +141,8 @@
                 </ul>
                 <ul style="list-style-type: none;">
                     <li class="pull-right">
-                        <a href="https://instagram.com/oauth/authorize/?client_id=bb53c3eb16724cc7a43ada643a9c7200&redirect_uri=http://northdacoder.github.io/feedme/&response_type=token"><button class="btn btn-primary btn-lg">Login with <i class="fa fa-instagram"></i>  Instagram Login</button></a>
-                        <a href="https://instagram.com/accounts/logout/" class="btn btn-primary btn-lg"> Logout <i class="fa fa-logout"></i></a>
+                        <a href="https://instagram.com/oauth/authorize/?client_id=283747d2bcf5489c8af8b752b0f92cc5&redirect_uri=http://localhost:4000&response_type=token"><button class="btn btn-primary btn-sm">Login <i class="fa fa-instagram"></i> </button></a>
+                        <a href="https://instagram.com/accounts/logout/" class="btn btn-danger btn-sm"> Logout <i class="fa fa-sign-out"></i></a>
                     </li>
                 </ul>
             </div>
@@ -91,20 +152,26 @@
     </nav>
 
     <div class="container-fluid">
-        <div class="row" style="margin-top: 120px;">
-            <div class="col-sm-4" style="border-right: 1px dashed rgba(0,0,0,.1);">
-                <h2 class="text-center"><span class="label label-primary"><i class="fa fa-instagram"></i> Instagram</span></h2>
-                <div id="instagram">
-
+        <div class="row" style="margin-top: 100px;">
+            <div class="col-sm-3" style="border-right: 1px dashed rgba(0,0,0,.1); padding: 0;" id="instagram-container">
+                <h3 class="text-center" style="color: rgba(0,0,0,.3); margin-top: 40px;"><i class="fa fa-instagram"></i> Instagram</h3>
+                <div class="form-group">
+                    <input type="text" id="insta-search" class="input-lg form-control" placeholder="#tag" style="background: white; padding-left: 10px;">
                 </div>
+                <div id="instafeed"></div>
+                <div id="instagram"></div>
             </div>
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4"></div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3"></div>
+
         </div>
     </div>
   
 </body>
 </html>
+
+
 
 
 
