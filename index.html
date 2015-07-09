@@ -18,7 +18,7 @@
     <!-- Css Styles -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="css/scrolling-nav.css" rel="stylesheet" type="text/css">
-    <link href="https://bootswatch.com/paper/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!--<link href="https://bootswatch.com/paper/bootstrap.min.css" rel="stylesheet" type="text/css">-->
 
  
     <script src="js/jquery-1.10.2.js"></script>
@@ -26,6 +26,15 @@
 
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
+
+    <style type="text/css">
+       #insta-login, #insta-logout {    
+            margin-right: 10px;
+            border-radius: 0;
+            position: relative;
+            top: 10px;
+       }
+    </style>
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -60,10 +69,28 @@
               console.log($(window));
               var myToken = window.location.hash.split("=");
               myToken = myToken[1];
-              console.log(myToken);
+              // console.log(myToken);
               
+            // function createHtml (data) {
+            //     console.log("createHtml function fired");
+            //     data = data.data; 
+            //     for (var i = 0; i < data.length; i++) {
+            //         console.log(data[i]);
+            //         var image = data[i].images.standard_resolution.url;
+            //         console.log(image);
+            //         var htmlString = 
+            //                     '<div class="">' + 
+            //                       '<h3 class="text-center" style="color: white; position: absolute; background: #3f729b;">' + data[i].user.username + '</h3>' +  
+            //                       '<img src="' + image + '" class="img-responsive" style="width: 100%; height: auto;"/>' +
+            //                     '</div>';
+            //         imageHolder.append(htmlString);
+            //         imageHolder.append(data[i]);
+            //     }
+
+            // }
+
             function createHtml (data) {
-                console.log("createHtml function fired");
+                console.log(data);
                 data = data.data; 
                 for (var i = 0; i < data.length; i++) {
                     console.log(data[i]);
@@ -79,12 +106,13 @@
                 }
 
             }
+
               
-            var searchQuery = "style";
-              
+            var searchQuery = "targetstyle";
+
 
             function getData (q) {
-                
+
                 $.ajax({
                     type: 'GET',
                     // url: "https://api.instagram.com/v1/users/self/feed?access_token=" + myToken,
@@ -102,17 +130,28 @@
               
 
               
-            $("#insta-search").keydown(function (e) {
+            $("#insta-search").on('keypress', function (e) {
+
                 if (e.keyCode == 13) {
-                    searchQuery = $(this).val();
-                    alert(searchQuery);
+                    searchQuery = $("#insta-search").val();
                 }
+
                 getData(searchQuery);
             });
 
-              getData(searchQuery);
+            getData(searchQuery);
 
 
+            var instagramLogin = $("#insta-login");
+            var instagramLogout = $("#insta-logout");
+
+            if (myToken != undefined) {
+                instagramLogin.hide();
+                instagramLogout.show();
+            } else {
+                instagramLogout.hide();
+                instagramLogin.show();
+            }
         });
     </script>
 
@@ -134,7 +173,7 @@
             </div>
 
 
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <!--<div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
                    
                     
@@ -145,7 +184,7 @@
                         <a href="https://instagram.com/accounts/logout/" class="btn btn-danger btn-sm"> Logout <i class="fa fa-sign-out"></i></a>
                     </li>
                 </ul>
-            </div>
+            </div>-->
 
             </div>
         </div>
@@ -153,17 +192,18 @@
 
     <div class="container-fluid">
         <div class="row" style="margin-top: 100px;">
-            <div class="col-sm-3" style="border-right: 1px dashed rgba(0,0,0,.1); padding: 0;" id="instagram-container">
-                <h3 class="text-center" style="color: rgba(0,0,0,.3); margin-top: 40px;"><i class="fa fa-instagram"></i> Instagram</h3>
+            <div class="col-sm-6" style="border-right: 1px dashed rgba(0,0,0,.1); padding: 0;" id="instafeed">
+
+                <a href="https://instagram.com/oauth/authorize/?client_id=283747d2bcf5489c8af8b752b0f92cc5&redirect_uri=http://localhost:4000&response_type=token"class="btn btn-primary btn-lg pull-right" id="insta-login" >Login <i class="fa fa-instagram"></i></a>
+                <a href="https://instagram.com/accounts/logout/" class="btn btn-danger btn-lg pull-right" id="insta-logout"> Logout <i class="fa fa-sign-out"></i></a>
+
+                <h2 class="pull-left" style="color: rgba(0,0,0,.7); padding-left: 20px;"><i class="fa fa-instagram"></i> Instagram</h2>
+
                 <div class="form-group">
-                    <input type="text" id="insta-search" class="input-lg form-control" placeholder="#tag" style="background: white; padding-left: 10px;">
+                    <input type="text" id="insta-search" class="input-lg form-control" placeholder="#targetStyle" style="background: white; padding-left: 10px;">
                 </div>
-                <div id="instafeed"></div>
-                <div id="instagram"></div>
             </div>
-            <div class="col-sm-3"></div>
-            <div class="col-sm-3"></div>
-            <div class="col-sm-3"></div>
+            <div class="col-sm-6"></div>
 
         </div>
     </div>
